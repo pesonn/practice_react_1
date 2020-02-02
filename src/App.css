@@ -1,0 +1,44 @@
+.navbar--wrapper {
+  width: 100vw;
+  height: max-content;
+  background-color: hsla(0, 1%, 75%, 0.733);
+}
+
+.navbar {
+  width: 100vw;
+  max-width: 1700px;
+  height: 160px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.navbar--navpoints {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.navbar--navpoints li {
+  display: inline;
+  padding-right: 30px;
+  font-size: 1.25rem;
+}
+
+.navbar--navpoints li a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar--navpoints li a:hover {
+  color: hsl(212, 98%, 57%);
+  transition: 120ms;
+  
+}
+
+.navbar img {
+  width: 120px;
+  height: 120px;
+}
