@@ -6,10 +6,10 @@
 
 .navbar {
   width: 100vw;
-  max-width: 1700px;
-  height: 160px;
+  max-width: 1900px;
+  height: 90px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: 0 auto;
 }
@@ -18,13 +18,13 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  
+  margin-right: 10%;
 }
 
 .navbar--navpoints li {
   display: inline;
   padding-right: 30px;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 .navbar--navpoints li a {
@@ -39,6 +39,20 @@
 }
 
 .navbar img {
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
+  margin-left: 10%;
+}
+
+
+.header {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.nasaimg {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+  height: auto;
 }

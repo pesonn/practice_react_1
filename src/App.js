@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Header />
+      <Header title="First React App"/>
       <Main />
       <Footer />
     </div>
