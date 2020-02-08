@@ -1,43 +1,34 @@
 import React from "react";
+import NasaAPI from "./NasaAPI";
 
 export default class Main extends React.Component {
   constructor(props) {
     super(props)
-    this.state= {
-      items: {},
-      isLoaded: false,
+    this.state = {
+      camera: "mast", 
     }
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  async componentDidMount() {
-    const url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&api_key=DEMO_KEY";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({
-      isLoaded: true,
-      items: data.photos[Math.floor(Math.random() * 2)],
-      
-    })
-      console.log(this.state.items.photos)
-      
-      console.log(this.state.items.img_src)
+  handleChange(event) {
+    this.setState({camera: event.target.value})
+    console.log("event = " + event.target.value)
   }
-
-  
-
+ 
   render() {
-    const img = this.state.items.img_src
-    console.log(img)
-
+    console.log(this.state.camera)
     return(
       <main className="maincontent">
-      {!this.state.isLoaded ? <p>Loading...</p> : null}
-        
-        
-        <img src={img} className="nasaimg"></img>
+        <form>
+          <select value={this.state.camera} onChange={this.handleChange}>
+            <option value="mast">Mast Camera</option>
+            <option value="front">Front Hazard Camera</option>
+            <option value="panoramic">Panoramic Camera</option>
+          </select>
+        </form>
+        <NasaAPI camera = {this.state.camera}/>
       </main>
     )
     
   }
-  
 }
