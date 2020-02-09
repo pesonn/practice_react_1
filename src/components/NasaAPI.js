@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 export default class NasaAPI extends React.Component {
   constructor(props) {
     super(props)
@@ -9,10 +11,13 @@ export default class NasaAPI extends React.Component {
     }
 
     this.loadAPI = this.loadAPI.bind(this)
+    
   }
+  
 
   loadAPI = async () => {
-    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=${this.props.camera}&api_key=DEMO_KEY`);
+    const APIKEY = process.env.REACT_APP_NASA_API_KEY;
+    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=${this.props.camera}&api_key=${APIKEY}`); //TODO: API Key sicher einbinden
     const data = await response.json();
     this.setState({
       isLoaded: true,

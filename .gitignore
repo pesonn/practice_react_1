@@ -32,6 +32,7 @@ yarn-error.log*
 logs
 **/*.backup.*
 **/*.back.*
+.env
 
 node_modules
 bower_components
