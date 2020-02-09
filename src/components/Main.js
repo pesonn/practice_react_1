@@ -14,6 +14,8 @@ export default class Main extends React.Component {
     this.setState({camera: event.target.value})
     console.log("event = " + event.target.value)
   }
+
+ 
  
   render() {
     console.log(this.state.camera)
@@ -22,8 +24,8 @@ export default class Main extends React.Component {
         <form>
           <select value={this.state.camera} onChange={this.handleChange}>
             <option value="mast">Mast Camera</option>
-            <option value="front">Front Hazard Camera</option>
-            <option value="panoramic">Panoramic Camera</option>
+            <option value="rhaz">Rear Hazard Camera</option>
+            <option value="navcam">Navigation Camera</option>
           </select>
         </form>
         <NasaAPI camera = {this.state.camera}/>
