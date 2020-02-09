@@ -8,6 +8,7 @@ export default class NasaAPI extends React.Component {
     this.state= {
       img: "",
       isLoaded: false,
+      date: "",
     }
 
     this.loadAPI = this.loadAPI.bind(this)
@@ -23,14 +24,19 @@ export default class NasaAPI extends React.Component {
       this.setState({
         isLoaded: true,
         img: data.url,
+        date: data.date
       })
+      console.log(data)
     } else {
         const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=${this.props.camera}&api_key=${APIKEY}`);
         const data = await response.json();
+        let randomnumber = Math.round(Math.random() * (data.photos.length - 1));
         this.setState({
           isLoaded: true,
-          img: data.photos[Math.round(Math.random() * (data.photos.length - 1))].img_src,
+          img: data.photos[randomnumber].img_src,
+          date: data.photos[randomnumber].earth_date
         })
+        console.log(this.state.date)
     }
     
     
@@ -51,7 +57,13 @@ export default class NasaAPI extends React.Component {
     return(
       <div className="imgwrapper">
       {!this.state.isLoaded ? 
-      <p>Loading...</p> : <img src={this.state.img} className="nasaimg"></img>}</div>
+      null : (
+      <p>Date: {this.state.date}</p>)} 
+      {!this.state.isLoaded ? 
+      <p>Loading...</p> : (
+      <img src={this.state.img} className="nasaimg"></img> )} 
+      
+      </div>
      
     )
   }

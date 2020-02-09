@@ -51,8 +51,8 @@
 }
 
 .imgwrapper {
-  justify-content: center;
   display: flex;
+  flex-direction: column;
 }
 .nasaimg {
   align-self: center;
