@@ -3,23 +3,21 @@ import NasaAPI from "./NasaAPI";
 
 export default class Main extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      camera: "mast", 
-    }
+      camera: "mast"
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({camera: event.target.value})
-    console.log("event = " + event.target.value)
+    this.setState({ camera: event.target.value });
+    console.log("event = " + event.target.value);
   }
 
- 
- 
   render() {
-    console.log(this.state.camera)
-    return(
+    console.log(this.state.camera);
+    return (
       <main className="maincontent">
         <form>
           <select value={this.state.camera} onChange={this.handleChange}>
@@ -29,9 +27,8 @@ export default class Main extends React.Component {
             <option value="navcam">Navigation Camera</option>
           </select>
         </form>
-        <NasaAPI camera = {this.state.camera}/>
+        <NasaAPI camera={this.state.camera} />
       </main>
-    )
-    
+    );
   }
 }
