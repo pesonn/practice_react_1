@@ -23,6 +23,7 @@ export default class Main extends React.Component {
       <main className="maincontent">
         <form>
           <select value={this.state.camera} onChange={this.handleChange}>
+            <option value="apod">Picture of the Day</option>
             <option value="mast">Mast Camera</option>
             <option value="rhaz">Rear Hazard Camera</option>
             <option value="navcam">Navigation Camera</option>

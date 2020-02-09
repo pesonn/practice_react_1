@@ -17,12 +17,22 @@ export default class NasaAPI extends React.Component {
 
   loadAPI = async () => {
     const APIKEY = process.env.REACT_APP_NASA_API_KEY;
-    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=${this.props.camera}&api_key=${APIKEY}`);
-    const data = await response.json();
-    this.setState({
-      isLoaded: true,
-      img: data.photos[Math.round(Math.random() * (data.photos.length - 1))].img_src,
-    }) 
+    if(this.props.camera === "apod") {
+      const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${APIKEY}`);
+      const data = await response.json();
+      this.setState({
+        isLoaded: true,
+        img: data.url,
+      })
+    } else {
+        const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=${this.props.camera}&api_key=${APIKEY}`);
+        const data = await response.json();
+        this.setState({
+          isLoaded: true,
+          img: data.photos[Math.round(Math.random() * (data.photos.length - 1))].img_src,
+        })
+    }
+    
     
   }
     
