@@ -50,10 +50,14 @@
   text-align: center;
 }
 
-.nasaimg {
-  display: flex;
+.imgwrapper {
   justify-content: center;
+  display: flex;
+}
+.nasaimg {
+  align-self: center;
   width: 80vw;
+  max-width: 1000px;
   height: auto;
   margin: 25px 0 25px 0;
 }

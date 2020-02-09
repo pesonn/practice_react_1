@@ -49,10 +49,10 @@ export default class NasaAPI extends React.Component {
 
   render() {
     return(
-      <div>
-        {!this.state.isLoaded ? <p>Loading...</p> : null}
-        <img src={this.state.img} className="nasaimg"></img>
-      </div>
+      <div className="imgwrapper">
+      {!this.state.isLoaded ? 
+      <p>Loading...</p> : <img src={this.state.img} className="nasaimg"></img>}</div>
+     
     )
   }
 }
